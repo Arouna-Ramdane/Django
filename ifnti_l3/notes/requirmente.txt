@@ -1,0 +1,10 @@
+from notes.models.Niveau import Niveau
+>>> niveau_1 = Niveau();
+>>> niveau_1.save()
+>>> print(niveau_1)
+
+>>> print(niveau_1.nom)
+
+>>> 
+
+
