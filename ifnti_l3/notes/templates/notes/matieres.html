@@ -1,0 +1,6 @@
+<h1>Liste des matières</h1>
+<ul>
+    {% for matiere in all_matieres %}
+        <a href="{% url 'notes:matiere' matiere.id %}"><li>{{ matiere.nom }} </li></a>
+    {% endfor %}
+</ul>
