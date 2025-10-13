@@ -1,0 +1,61 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*$py.class
+
+# --- Django ---
+db.sqlite3
+*.log
+local_settings.py
+media/
+staticfiles/
+static/
+.env
+
+# --- Environnements virtuels ---
+venv/
+env/
+ENV/
+.venv/
+.env/
+Pipfile
+Pipfile.lock
+
+# --- IDE / Éditeurs ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- Migrations compilées (facultatif, si tu veux ignorer les anciennes) ---
+*/migrations/__pycache__/
+*/migrations/*.pyc
+# Si tu veux ignorer toutes les migrations locales non trackées :
+# */migrations/
+
+# --- Systèmes d'exploitation ---
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+*.orig
+
+# --- Tests / Coverage ---
+.coverage
+*.cover
+*.py,cover
+.hypothesis/
+pytest_cache/
+
+# --- Docker / VSCode / Autres ---
+*.pid
+*.seed
+*.out
+*.log
+*.lock
+__debug_bin__
+
