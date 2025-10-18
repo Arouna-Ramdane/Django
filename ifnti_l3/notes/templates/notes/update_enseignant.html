@@ -1,0 +1,7 @@
+<h1>Modifier l’enseignant {{ enseignant.nom }} {{ enseignant.prenom }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Mettre à jour</button>
+</form>

@@ -1,5 +1,26 @@
-<h1>Détails de l'élève</h1>
-<p><strong>Nom :</strong> {{ eleve.nom }}</p>
-<p><strong>Prénom :</strong> {{ eleve.prenom }}</p>
-<p><strong>Date de naissance :</strong> {{ eleve.date_naissance }}</p>
-<a href="{% url 'notes:eleves' %}"><button>retour</button></a>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de l’élève</title>
+</head>
+<body>
+    <h1>Détails de l’élève</h1>
+    <p><strong>Nom :</strong> {{ eleve.nom }} {{ eleve.prenom }}</p>
+    <p><strong>Niveau :</strong> {{ eleve.niveau.nom }}</p>
+
+    <h2>Matières suivies :</h2>
+    <ul>
+        {% for matiere in matieres %}
+            <li>
+                {{ matiere.nom }}
+                – <a href="{% url 'notes:add_note' eleve.matricule matiere.id %}">Donner une note</a>            
+            </li>
+        {% empty %}
+            <li>Aucune matière trouvée pour cet élève.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'notes:update_eleve' eleve.matricule %}">Modifier l'eleve</a>
+
+    <a href="{% url 'notes:eleves' %}"><button>retour</button></a>

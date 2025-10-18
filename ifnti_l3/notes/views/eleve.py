@@ -1,5 +1,8 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404, redirect
 from notes.models.Eleve import Eleve
+from notes.models.Matiere import Matiere
+from notes.forms import EleveForm
+
 # Create your views here.
 from django.http import HttpResponse
 def eleves(request):
@@ -14,5 +17,20 @@ def eleves(request):
 
 def eleve(request, id):
     eleve = get_object_or_404(Eleve, pk=id)
-    return render(request, "notes/eleve.html", {"eleve": eleve})
+    matieres = Matiere.objects.filter(niveau= eleve.niveau)
+    return render(request, "notes/eleve.html", {"eleve": eleve, "matieres": matieres})
+    
 
+
+def update_eleve(request, eleve_id):
+    eleve = get_object_or_404(Eleve, pk=eleve_id)
+
+    if request.method == 'POST':
+        form = EleveForm(request.POST, instance=eleve)
+        if form.is_valid():
+            form.save()
+            return redirect('notes:eleve', id=eleve.matricule)
+    else:
+        form = EleveForm(instance=eleve)
+
+    return render(request, 'notes/update_eleve.html', {'form': form, 'eleve': eleve})

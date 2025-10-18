@@ -1,0 +1,7 @@
+<h2>Ajout d'un enseignant</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+</form>
+<a href="{% url 'notes:enseignants' %}"><button>retour</button></a>

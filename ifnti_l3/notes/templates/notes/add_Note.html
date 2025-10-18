@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajouter une note</title>
+</head>
+<body>
+    <h1>Ajouter une note</h1>
+
+    <p><strong>Élève :</strong> {{ eleve.nom }} {{ eleve.prenom }}</p>
+    <p><strong>Matière :</strong> {{ matiere.nom }}</p>
+
+    <form method="post" action="{% url 'notes:add_note' eleve.matricule matiere.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Enregistrer</button>
+    </form>
+</body>
+</html>

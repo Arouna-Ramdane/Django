@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de l’enseignant</title>
+</head>
+<body>
+    <h1>Détails de l’enseignant</h1>
+    <p><strong>Nom :</strong> {{ enseignant.nom }} {{ enseignant.prenom }}</p>
+
+    <a href="{% url 'notes:update_enseignant' enseignant.id %}">Modifier</a>
+
+    
+
+    <a href="{% url 'notes:enseignants' %}"><button>retour</button></a>

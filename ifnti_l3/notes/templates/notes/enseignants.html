@@ -1,0 +1,10 @@
+<h1>Liste des enseignants</h1>
+<ul>
+    {% for enseignant in all_enseignants %}
+        <a href="{% url 'notes:enseignant' enseignant.id %}"><li>{{ enseignant.nom }} {{ enseignant.prenom }} </li></a>
+    {% endfor %}
+
+</ul>
+
+
+<a href="{% url 'notes:add_enseignant' %}">ajouter un enseignant</a>

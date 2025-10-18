@@ -3,5 +3,8 @@
     {% for eleve in all_eleves %}
         <a href="{% url 'notes:eleve' eleve.matricule %}"><li>{{ eleve.nom }} {{ eleve.prenom }} </li></a>
     {% endfor %}
-    
+
 </ul>
+
+
+<a href="{% url 'notes:add_eleve' %}">ajouter un eleve</a>
